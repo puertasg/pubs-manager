@@ -19,6 +19,7 @@ function pubsOpenedToday() {
     return barsByDay;
 }
 
+<<<<<<< HEAD
 //JSON typé
 function initPubsArray(jsonPubsArrray) {
     var pubsArray = [];
@@ -36,12 +37,32 @@ function initPubsArray(jsonPubsArrray) {
             openhour = new OpenHour(pub.openHours.start, pub.openHours.end);
 
         var bar = new Pub(pub._name, owner, opendays, openhour, bieres);
+=======
+function makePubsArrayFromJSON(jsonPubsArrray){
+    var pubsArray = [];
+
+    jsonPubsArrray.forEach(pub => {
+        var owner = new Owner(pub.owner.firstName, pub.owner.lastName, pub.owner.mail);
+
+        var bieres = [];
+        pub.beers.forEach(beer => {
+            var biere = new Beer(beer.type, beer.name);
+            bieres.push(biere);
+        });
+
+        var opendays = pub.openDays;
+
+        var openhour = new OpenHour(pub.openHours.start, pub.openHours.end);
+
+        var bar = new Pub(pub.name, owner, opendays, openhour, bieres);
+>>>>>>> parent of ec50e84... Fin TP IHM
         pubsArray.push(bar);
     });
 
     return pubsArray;
 }
 
+<<<<<<< HEAD
 //JSON non typé
 function makePubsArrayFromJSON(jsonPubsArrray){
     //Cette fonction est aussi appelée pour créer des pubs à partir du localStorage
@@ -86,4 +107,9 @@ export default {
     allPubs,
     pubsOpenedToday,
     makePubsArrayFromJSON
+=======
+export default { 
+    allPubs, 
+    pubsOpenedToday 
+>>>>>>> parent of ec50e84... Fin TP IHM
 }

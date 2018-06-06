@@ -17,31 +17,10 @@ if (!window.localStorage.getItem('pubs')) {
     pubs = pubService.makePubsArrayFromJSON(pubsJSON);
 }
 
-
-
+var pubs = pubService.pubsOpenedToday();
 var liste = document.getElementById("listePubs");
 pubs.forEach(pub => {
-    writePub(pub);
-});
-
-document.getElementById("savePub").onclick = function () {
-    var nomPub = document.getElementById("inputNomPub").value;
-    var nomOwner = document.getElementById("inputNomOwner").value;
-    var prenomOwner = document.getElementById("inputPrenomOwner").value;
-    var mailOwner = document.getElementById("inputMailOwner").value;
-
-    var newOwner = new Owner(prenomOwner, nomOwner, mailOwner);
-    var newPub = new Pub(nomPub, newOwner, null, null, null);
-
-    writePub(newPub);
-    pubs.push(newPub);
-
-    //Enregistre la liste des pubs à jour dans le localStorage
-    window.localStorage.setItem('pubs', JSON.stringify(pubs));
-}
-
-function writePub(pub) {
     var li = document.createElement("li");
-    li.appendChild(document.createTextNode(`Le pub ${pub.name} appartient à ${pub.owner.firstName} ${pub.owner.lastName}`));
+    li.appendChild(document.createTextNode("Le pub " + pub.name + " appartient à " + pub.owner.firstName + " " + pub.owner.lastName));
     liste.appendChild(li);
-}
+});
