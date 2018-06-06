@@ -19,30 +19,42 @@ function pubsOpenedToday() {
     return barsByDay;
 }
 
-function makePubsArrayFromJSON(jsonPubsArrray){
+function makePubsArrayFromJSON(jsonPubsArrray) {
     var pubsArray = [];
 
     jsonPubsArrray.forEach(pub => {
-        var owner = new Owner(pub.owner.firstName, pub.owner.lastName, pub.owner.mail);
+        var owner = new Owner(pub._owner._firstName, pub._owner._lastName, pub._owner._mail);
 
+        //Cette fonction est aussi appelée pour créer des pubs à partir du localStorage
+        //donc dans ce cas les propriétés beers, opendays et openhour ne seront pas définies
+        //ce qui causera une nullPointerException si on essaye de lire leurs propriétés
         var bieres = [];
-        pub.beers.forEach(beer => {
-            var biere = new Beer(beer.type, beer.name);
-            bieres.push(biere);
-        });
+        if (pub._beers != null) {
+            pub._beers.forEach(beer => {
+                var biere = new Beer(beer._type, beer._name);
+                bieres.push(biere);
+            });
+        }
 
-        var opendays = pub.openDays;
+        var opendays = null
+        if (pub._openDays != null) {
+            opendays = pub._openDays;
+        }
 
-        var openhour = new OpenHour(pub.openHours.start, pub.openHours.end);
+        var openhour = null
+        if (pub._openHours != null) {
+            openhour = new OpenHour(pub._openHours._start, pub._openHours._end);
+        }
 
-        var bar = new Pub(pub.name, owner, opendays, openhour, bieres);
+        var bar = new Pub(pub._name, owner, opendays, openhour, bieres);
         pubsArray.push(bar);
     });
 
     return pubsArray;
 }
 
-export default { 
-    allPubs, 
-    pubsOpenedToday 
+export default {
+    allPubs,
+    pubsOpenedToday,
+    makePubsArrayFromJSON
 }
