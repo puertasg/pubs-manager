@@ -7,7 +7,8 @@ var pubs = [];
 //Vérifie si on a pas la liste des pubs dans le localStorage
 if (!window.localStorage.getItem('pubs')) {
     //Récupération à partir des données mock
-    pubs = pubService.pubsOpenedToday();
+    var pubsJSON = pubService.pubsOpenedToday();
+    pubs = pubService.makePubsArrayFromJSON(pubsJSON);
     //Enregistre dans le localStorage
     window.localStorage.setItem('pubs', JSON.stringify(pubs));
 } else {
