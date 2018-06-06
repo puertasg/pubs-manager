@@ -1,0 +1,89 @@
+[{
+        "name": "Arawak",
+        "owner": {
+            "firstName": "Nicolas",
+            "lastName": "Hodicq",
+            "mail": "nhodicq@bewizyu.com"
+        },
+        "openDays": [
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ],
+        "openHours": {
+            "start": 10,
+            "end": 1
+        },
+        "beers": [{
+            "type": "Blonde",
+            "name": "Triple Karmeliet"
+        }]
+    },
+    {
+        "name": "Le Live Bar",
+        "owner": {
+            "firstName": "prenom",
+            "lastName": "nom",
+            "mail": "nhodicq@bewizyu.com"
+        },
+        "openDays": [
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+        ],
+        "openHours": {
+            "start": 17,
+            "end": 2
+        },
+        "beers": [{
+            "type": "Blonde",
+            "name": "Triple Karmeliet"
+        }]
+    },
+    {
+        "name": "le labo",
+        "owner": {
+            "firstName": "fghjxfgch",
+            "lastName": "xfthxfghxfgh",
+            "mail": "nhodicq@bewizyu.com"
+        },
+        "openDays": [
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ],
+        "openHours": {
+            "start": 18,
+            "end": 2
+        },
+        "beers": [{
+            "type": "Blonde",
+            "name": "Triple Karmeliet"
+        }]
+    },
+    {
+        "name": "Le bar du Lundi",
+        "owner": {
+            "firstName": "fghjxfgch",
+            "lastName": "xfthxfghxfgh",
+            "mail": "nhodicq@bewizyu.com"
+        },
+        "openDays": [
+            "Monday"
+        ],
+        "openHours": {
+            "start": 18,
+            "end": 2
+        },
+        "beers": [{
+            "type": "Blonde",
+            "name": "Triple Karmeliet"
+        }]
+    }
+]
